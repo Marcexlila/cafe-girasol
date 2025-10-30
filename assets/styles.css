@@ -1,0 +1,143 @@
+:root {
+  --color-bg: #fffaf3;
+  --color-primary: #d4a373;
+  --color-dark: #4a3b2a;
+  --color-accent: #ffd56b;
+  --color-light: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-dark);
+}
+
+/* Header */
+.header {
+  background: var(--color-primary);
+  color: white;
+  padding: 10px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.nav a:hover, .nav a.active {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1500&q=80') center/cover;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  background: rgba(0,0,0,0.4);
+  position: absolute;
+  inset: 0;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.btn {
+  background: var(--color-accent);
+  color: var(--color-dark);
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+/* Features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.features img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.features h3 {
+  color: var(--color-primary);
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  background: var(--color-dark);
+  color: var(--color-light);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  margin-top: 50px;
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
