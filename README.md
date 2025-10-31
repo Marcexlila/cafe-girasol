@@ -17,14 +17,11 @@ El objetivo del proyecto es aplicar buenas prácticas de control de versiones, c
 - Commits descriptivos.  
 - Integración y publicación automática con GitHub Pages.  
 
-
 👩‍💻 Integrantes
 
-| Nombre              | Rol                      | Responsabilidad              |
-|---------------------|--------------------------|------------------------------|
-| Marcela Saldarriaga | Desarrolladora principal | Estructura HTML y diseño CSS |
-| Steven Rendón       | Colaborador              | Revisión, pruebas y commits  |
+Nombre	Rol	Responsabilidad
 
-
-
-
+Marcela Saldarriaga	Desarrolladora principal	Estructura HTML y diseño CSS
+Steven Rendón	Colaborador	Revisión, pruebas y commits
+Steban Martínez	Desarrollador especializado	Integración funcional y optimización del código
+Stiven Arcilla	Desarrollador de soporte	Mantenimiento, depuración y documentación técnica
