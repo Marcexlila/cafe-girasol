@@ -9,31 +9,158 @@
 <body>
   <header class="header">
     <div class="container header-content">
-      <h1 class="logo">☕ Café Girasol</h1>
-      <nav class="nav">
+      <nav class="nav left-nav" role="navigation" aria-label="Menú principal">
         <a href="index.html">Inicio</a>
         <a href="about.html">Nosotros</a>
         <a href="services.html" class="active">Menú</a>
         <a href="contact.html">Contacto</a>
       </nav>
+
+      <h1 class="logo">☕ Café Girasol</h1>
+
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Ver pedido">
+          🧺 <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main class="container menu">
-    <h2>Nuestro menú</h2>
-    <ul>
-      <li><strong>Café Americano:</strong> Sencillo y aromático. $5.000</li>
-      <li><strong>Capuchino:</strong> Cremoso con espuma de leche. $6.500</li>
-      <li><strong>Latte de Vainilla:</strong> Dulce y suave. $7.000</li>
-      <li><strong>Pan de Queso:</strong> Ideal para acompañar tu bebida. $3.000</li>
-      <li><strong>Tarta de Chocolate:</strong> Postre casero irresistible. $8.000</li>
-    </ul>
+    <!-- Sección: Introducción al menú -->
+    <section class="menu-hero">
+      <h2>Nuestro menú</h2>
+      <p>Descubre nuestras bebidas y recetas caseras. Filtra por categoría, busca por nombre u ordena por precio.</p>
+    </section>
+
+    <!-- Controles y grid (sin contact-strip ni sedes, que ahora están en contact.html) -->
+    <section class="menu-controls" aria-label="Controles del menú">
+      <input id="menuSearch" type="search" placeholder="Buscar producto..." aria-label="Buscar producto">
+      <div class="controls-right">
+        <div class="category-filters" role="tablist" aria-label="Filtrar por categoría">
+          <button class="filter active" data-cat="all" role="tab" aria-selected="true">Todos</button>
+          <button class="filter" data-cat="cafes" role="tab">Cafés</button>
+          <button class="filter" data-cat="postres" role="tab">Postres</button>
+          <button class="filter" data-cat="panaderia" role="tab">Panadería</button>
+          <button class="filter" data-cat="cold" role="tab">Bebidas frías</button>
+        </div>
+
+        <label for="sortSelect" class="visually-hidden">Ordenar</label>
+        <select id="sortSelect" aria-label="Ordenar productos">
+          <option value="default">Orden predeterminado</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="menuGrid" class="menu-grid" aria-live="polite">
+      <!-- Tarjetas de productos (igual que antes) -->
+      <article class="card" data-name="Café Americano" data-cat="cafes">
+        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/924/924514.png" alt="Café Americano" />
+        <div class="card-body">
+          <h3>Café Americano <span class="badge">Popular</span></h3>
+          <p class="desc">Sencillo y aromático, preparado al momento con granos colombianos.</p>
+          <div class="card-meta">
+            <span class="price">$5.000</span>
+            <div class="card-actions">
+              <button class="btn small info-btn" data-name="Café Americano">Más info</button>
+              <button class="btn small primary order-btn" data-name="Café Americano" data-price="5000">Pedir</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-name="Capuchino" data-cat="cafes">
+        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/219/219969.png" alt="Capuchino" />
+        <div class="card-body">
+          <h3>Capuchino</h3>
+          <p class="desc">Cremoso con espuma de leche, perfecto para empezar el día.</p>
+          <div class="card-meta">
+            <span class="price">$6.500</span>
+            <div class="card-actions">
+              <button class="btn small info-btn" data-name="Capuchino">Más info</button>
+              <button class="btn small primary order-btn" data-name="Capuchino" data-price="6500">Pedir</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-name="Pan de Queso" data-cat="panaderia">
+        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/706/706195.png" alt="Pan de Queso" />
+        <div class="card-body">
+          <h3>Pan de Queso</h3>
+          <p class="desc">Ideal para acompañar tu bebida, recién horneado todas las mañanas.</p>
+          <div class="card-meta">
+            <span class="price">$3.000</span>
+            <div class="card-actions">
+              <button class="btn small info-btn" data-name="Pan de Queso">Más info</button>
+              <button class="btn small primary order-btn" data-name="Pan de Queso" data-price="3000">Pedir</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-name="Limonada de Maracuyá" data-cat="cold">
+        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/135/135620.png" alt="Limonada de Maracuyá" />
+        <div class="card-body">
+          <h3>Limonada de Maracuyá</h3>
+          <p class="desc">Refrescante y natural, perfecta para días calurosos.</p>
+          <div class="card-meta">
+            <span class="price">$4.000</span>
+            <div class="card-actions">
+              <button class="btn small info-btn" data-name="Limonada de Maracuyá">Más info</button>
+              <button class="btn small primary order-btn" data-name="Limonada de Maracuyá" data-price="4000">Pedir</button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
   </main>
+
+  <!-- Modal del producto (se mantiene aquí) -->
+  <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" aria-label="Cerrar">&times;</button>
+      <h3 id="modalTitle">Título</h3>
+      <p id="modalDesc">Descripción del producto.</p>
+      <p id="modalPrice" class="modal-price"></p>
+      <button id="modalOrder" class="btn primary">Pedir</button>
+    </div>
+  </div>
+
+  <!-- Modal del carrito (lo dejamos en services.html para que el menú abra el pedido) -->
+  <div id="cartModal" class="modal cart-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content cart-content">
+      <header class="cart-header">
+        <h3>Tu pedido</h3>
+        <button class="modal-close cart-close" aria-label="Cerrar carrito">&times;</button>
+      </header>
+
+      <div id="cartItems" class="cart-items" aria-live="polite"></div>
+
+      <div class="cart-footer">
+        <div class="cart-totals">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">$0</strong>
+        </div>
+        <div class="cart-actions">
+          <button id="clearCartBtn" class="btn">Vaciar</button>
+          <button id="checkoutBtn" class="btn primary">Finalizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a id="whatsappBtn" class="whatsapp-btn" href="https://wa.me/573001234567" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">💬</a>
 
   <footer class="footer">
     <div class="container">
       <p>© 2025 Café Girasol | Proyecto académico - Calidad de Software</p>
     </div>
   </footer>
+
+  <script src="assets/script.js"></script>
 </body>
 </html>

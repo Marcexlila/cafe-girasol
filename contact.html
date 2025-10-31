@@ -9,32 +9,90 @@
 <body>
   <header class="header">
     <div class="container header-content">
-      <h1 class="logo">☕ Café Girasol</h1>
-      <nav class="nav">
+      <nav class="nav left-nav" role="navigation" aria-label="Menú principal">
         <a href="index.html">Inicio</a>
         <a href="about.html">Nosotros</a>
         <a href="services.html">Menú</a>
         <a href="contact.html" class="active">Contacto</a>
       </nav>
+
+      <h1 class="logo">☕ Café Girasol</h1>
+
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Ver pedido">
+          🧺 <span id="cartCount" class="cart-count">0</span>
+        </button>
+      </div>
     </div>
   </header>
 
+  <!-- Contact strip: horarios, email, WhatsApp y redes (movido desde services.html) -->
+  <section class="contact-strip">
+    <div class="container contact-strip-content">
+      <div class="cs-item">
+        <strong>Horario</strong>
+        <span>Lun-Dom 07:00 - 20:00</span>
+      </div>
+      <div class="cs-item">
+        <strong>Email</strong>
+        <a href="mailto:info@cafegirasol.com">info@cafegirasol.com</a>
+      </div>
+      <div class="cs-item">
+        <strong>WhatsApp</strong>
+        <a href="https://wa.me/573001234567" target="_blank" rel="noopener">+57 300 1234567</a>
+      </div>
+      <div class="cs-social">
+        <a href="#" aria-label="Instagram" class="social">📷</a>
+        <a href="#" aria-label="Facebook" class="social">📘</a>
+      </div>
+    </div>
+  </section>
+
   <main class="container contact">
     <h2>Contáctanos</h2>
+
     <form id="contactForm">
       <label>Nombre<br><input type="text" id="name" required></label><br>
       <label>Correo<br><input type="email" id="email" required></label><br>
       <label>Mensaje<br><textarea id="message" required></textarea></label><br>
-      <button type="submit">Enviar mensaje</button>
+      <button type="submit" class="btn">Enviar mensaje</button>
     </form>
-    <div id="feedback"></div>
+    <div id="feedback" class="feedback" aria-live="polite"></div>
+
+    <!-- Sedes y horarios (movido desde services.html) -->
+    <section class="branches" aria-label="Sedes y horarios">
+      <h2>Nuestras sedes</h2>
+      <div class="branches-grid">
+        <div class="branch">
+          <h3>Montecarlo</h3>
+          <p>Dirección: Calle 123 #45-67</p>
+          <p>Horario: Lun-Vie 07:00 - 20:00 • Sáb-Dom 08:00 - 18:00</p>
+          <a href="https://www.google.com/maps?q=Calle+123+45-67" target="_blank" rel="noopener">Ver en mapa</a>
+        </div>
+        <div class="branch">
+          <h3>Centro</h3>
+          <p>Dirección: Carrera 10 #20-10</p>
+          <p>Horario: Lun-Dom 07:30 - 19:30</p>
+          <a href="https://www.google.com/maps?q=Carrera+10+20-10" target="_blank" rel="noopener">Ver en mapa</a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <!-- Mantengo el modal del carrito en services.html (si quieres, lo copio aquí también) -->
+
+  <!-- Botón flotante de WhatsApp -->
+  <a id="whatsappBtn" class="whatsapp-btn" href="https://wa.me/573001234567" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">💬</a>
 
   <footer class="footer">
     <div class="container">
       <p>© 2025 Café Girasol | Proyecto académico - Calidad de Software</p>
+      <p>Contacto: <a href="mailto:info@cafegirasol.com">info@cafegirasol.com</a> • Tel: +57 300 1234567</p>
+      <p><a href="privacy.html">Política de privacidad</a> • <a href="terms.html">Términos de uso</a></p>
     </div>
   </footer>
+
   <script src="assets/script.js"></script>
 </body>
 </html>
