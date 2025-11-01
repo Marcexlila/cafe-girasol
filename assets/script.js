@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const itemEl = document.createElement('div');
       itemEl.className = 'cart-item';
       itemEl.innerHTML = `
-        <div class="ci-left">
+        <div class="ci-left"> 
           <div class="ci-title">${escapeHtml(it.name)}</div>
           <div class="ci-qty">
             <button class="qty-btn qty-decrease" data-idx="${idx}" aria-label="Disminuir cantidad" title="Disminuir">−</button>

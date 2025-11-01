@@ -26,7 +26,7 @@
     </div>
   </header>
 
-  <!-- Contact strip: horarios, email, WhatsApp y redes (movido desde services.html) -->
+  <!-- Contact strip -->
   <section class="contact-strip">
     <div class="container contact-strip-content">
       <div class="cs-item">
@@ -42,45 +42,139 @@
         <a href="https://wa.me/573001234567" target="_blank" rel="noopener">+57 300 1234567</a>
       </div>
       <div class="cs-social">
-        <a href="#" aria-label="Instagram" class="social">📷</a>
-        <a href="#" aria-label="Facebook" class="social">📘</a>
+        <a href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener" aria-label="Abrir Instagram" class="social big">
+          <!-- Instagram SVG -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+          </svg>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/login/" target="_blank" rel="noopener" aria-label="Abrir Facebook" class="social big">
+          <!-- Facebook SVG -->
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M15.12 8.5h1.88V5.75c-.33-.05-1.47-.14-2.8-.14-2.77 0-4.67 1.68-4.67 4.77V11h-2.5v3h2.5v7h3.02v-7h2.4l.38-3h-2.78V9.02c0-.86.24-1.02 1.02-1.02z" fill="currentColor"/>
+          </svg>
+          <span>Facebook</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <main class="container contact">
+  <main class="container contact-main">
     <h2>Contáctanos</h2>
 
-    <form id="contactForm">
-      <label>Nombre<br><input type="text" id="name" required></label><br>
-      <label>Correo<br><input type="email" id="email" required></label><br>
-      <label>Mensaje<br><textarea id="message" required></textarea></label><br>
-      <button type="submit" class="btn">Enviar mensaje</button>
-    </form>
-    <div id="feedback" class="feedback" aria-live="polite"></div>
+    <div class="contact-grid">
+      <!-- Left: formulario principal -->
+      <section class="contact-card styled-form" aria-labelledby="contact-form-title">
+        <h3 id="contact-form-title">Envíanos un mensaje</h3>
+        <form id="contactForm" novalidate>
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" required>
 
-    <!-- Sedes y horarios (movido desde services.html) -->
-    <section class="branches" aria-label="Sedes y horarios">
-      <h2>Nuestras sedes</h2>
-      <div class="branches-grid">
-        <div class="branch">
-          <h3>Montecarlo</h3>
-          <p>Dirección: Calle 123 #45-67</p>
-          <p>Horario: Lun-Vie 07:00 - 20:00 • Sáb-Dom 08:00 - 18:00</p>
-          <a href="https://www.google.com/maps?q=Calle+123+45-67" target="_blank" rel="noopener">Ver en mapa</a>
-        </div>
-        <div class="branch">
-          <h3>Centro</h3>
-          <p>Dirección: Carrera 10 #20-10</p>
-          <p>Horario: Lun-Dom 07:30 - 19:30</p>
-          <a href="https://www.google.com/maps?q=Carrera+10+20-10" target="_blank" rel="noopener">Ver en mapa</a>
-        </div>
-      </div>
-    </section>
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" required>
 
+          <label for="subject">Asunto</label>
+          <input type="text" id="subject" name="subject" placeholder="Asunto (opcional)">
+
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="6" placeholder="Escribe tu mensaje..." required></textarea>
+
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Enviar mensaje</button>
+            <button type="reset" class="btn">Limpiar</button>
+          </div>
+        </form>
+
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+      </section>
+
+      <!-- Right: información, mapa y sedes -->
+      <aside class="contact-card info-card" aria-labelledby="info-title">
+        <h3 id="info-title">Información</h3>
+
+        <div class="info-block">
+          <strong>Teléfono</strong>
+          <div><a href="tel:+573001234567">+57 300 1234567</a></div>
+        </div>
+
+        <div class="info-block">
+          <strong>Correo</strong>
+          <div><a href="mailto:info@cafegirasol.com">info@cafegirasol.com</a></div>
+        </div>
+
+        <div class="info-block map-wrap" aria-hidden="false">
+          <strong>Visítanos</strong>
+          <!-- Mapa embebido (Google Maps) -->
+          <iframe
+            src="https://www.google.com/maps?q=Carrera+10+20-10&output=embed"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="info-block">
+          <strong>Sedes</strong>
+          <ul class="branch-list">
+            <li>
+              <div><strong>Montecarlo</strong></div>
+              <div>Calle 123 #45-67 — Lun-Vie 07:00 - 20:00</div>
+              <a href="https://www.google.com/maps?q=Calle+123+45-67" target="_blank" rel="noopener">Ver en mapa</a>
+            </li>
+            <li>
+              <div><strong>Centro</strong></div>
+              <div>Carrera 10 #20-10 — Lun-Dom 07:30 - 19:30</div>
+              <a href="https://www.google.com/maps?q=Carrera+10+20-10" target="_blank" rel="noopener">Ver en mapa</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-block">
+          <strong>Síguenos</strong>
+          <div class="cs-social" style="margin-top:8px;">
+            <a class="social big" href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener" aria-label="Abrir Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a class="social big" href="https://www.facebook.com/login/" target="_blank" rel="noopener" aria-label="Abrir Facebook">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M15.12 8.5h1.88V5.75c-.33-.05-1.47-.14-2.8-.14-2.77 0-4.67 1.68-4.67 4.77V11h-2.5v3h2.5v7h3.02v-7h2.4l.38-3h-2.78V9.02c0-.86.24-1.02 1.02-1.02z" fill="currentColor"/>
+              </svg>
+              <span>Facebook</span>
+            </a>
+            <a class="social big" href="https://twitter.com/login" target="_blank" rel="noopener" aria-label="Abrir X / Twitter">X</a>
+          </div>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <!-- Mantengo el modal del carrito en services.html (si quieres, lo copio aquí también) -->
+  <!-- Modal del carrito (copiado para que funcione desde contact.html) -->
+  <div id="cartModal" class="modal cart-modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content cart-content">
+      <header class="cart-header">
+        <h3>Tu pedido</h3>
+        <button class="modal-close cart-close" aria-label="Cerrar carrito">&times;</button>
+      </header>
+
+      <div id="cartItems" class="cart-items" aria-live="polite"></div>
+
+      <div class="cart-footer">
+        <div class="cart-totals">
+          <span>Subtotal</span>
+          <strong id="cartSubtotal">$0</strong>
+        </div>
+        <div class="cart-actions">
+          <button id="clearCartBtn" class="btn">Vaciar</button>
+          <button id="checkoutBtn" class="btn primary">Finalizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Botón flotante de WhatsApp -->
   <a id="whatsappBtn" class="whatsapp-btn" href="https://wa.me/573001234567" target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">💬</a>

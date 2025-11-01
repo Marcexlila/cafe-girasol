@@ -7,6 +7,20 @@
   --transition: 0.25s;
 }
 
+/* Tipografía: Comic Sans (global) */
+body {
+  font-family: "Comic Sans MS", "Comic Sans", "Chalkboard", cursive;
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--color-dark);
+}
+
+/* Asegurar títulos y logo con la misma familia (peso/estilo visual) */
+h1, h2, h3, h4, h5, h6, .logo {
+  font-family: "Comic Sans MS", "Comic Sans", "Chalkboard", cursive;
+}
+
 /* Topbar */
 .topbar {
   background: rgba(74,59,42,0.06);
@@ -322,6 +336,32 @@ button {
   flex-direction: column;
 }
 
+/* Reemplazo y mejora de .card img: contenedor y clase para control de tamaño y recorte */
+.img-wrap {
+  width: 100%;
+  height: 160px;            /* altura fija cómoda para tarjetas */
+  max-height: 220px;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: block;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;        /* recorta sin distorsionar */
+  object-position: center;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+/* efecto hover conservado pero ahora sobre la imagen contenida */
+.card:hover .product-img {
+  transform: scale(1.04) translateY(-4px);
+}
+
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.08);
@@ -473,7 +513,7 @@ button {
 }
 .contact-strip .cs-item strong { color: var(--color-dark); }
 .contact-strip .cs-item a { color: var(--color-dark); text-decoration: none; font-weight: 600; }
-.contact-strip .cs-social { display: flex; gap: 8px; align-items: center; }
+.contact-strip .cs-social { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
 .contact-strip .social {
   display: inline-flex;
   width: 36px;
@@ -580,3 +620,142 @@ button {
 /* Mejora de scrollbar (opcional) */
 .cart-items::-webkit-scrollbar { width:8px; }
 .cart-items::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.06); border-radius:8px; }
+
+/* Estilos específicos para contact.html (remaster) */
+.contact-main { padding: 36px 0 60px; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* tarjetas laterales */
+.contact-card {
+  background: var(--color-light);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+}
+
+/* Form */
+.styled-form label { display:block; margin-top:12px; font-weight:600; color:rgba(74,59,42,0.9); }
+.styled-form input,
+.styled-form textarea {
+  width:100%;
+  padding:10px 12px;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:8px;
+  margin-top:6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: #fff;
+}
+.styled-form .form-actions {
+  display:flex;
+  gap:10px;
+  margin-top:14px;
+}
+.btn.primary { background: var(--color-primary); color: white; }
+.btn { border-radius: 10px; padding: 10px 14px; font-weight:600; }
+
+/* Info card */
+.info-card h2 { margin-top:0; }
+.info-block { margin-bottom:14px; }
+.branch-list { list-style: none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+
+/* Map */
+.map-wrap iframe {
+  width:100%;
+  height:160px;
+  border:0;
+  border-radius:8px;
+  display:block;
+}
+
+/* Social buttons */
+.cs-social .social { color: var(--color-dark); }
+.social.big {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(74,59,42,0.06);
+  color: var(--color-dark);
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform var(--transition), background var(--transition);
+}
+.social.big svg { flex: none; width: 18px; height: 18px; color: var(--color-dark); }
+.social.big span { display: inline-block; line-height:1; }
+
+/* Hover visible */
+.social.big:hover { transform: translateY(-3px); background: rgba(212,163,115,0.12); }
+
+/* Feedback */
+.feedback { margin-top:12px; color: var(--color-dark); font-weight:600; }
+
+/* Responsive */
+@media (max-width: 980px) {
+  .contact-grid { grid-template-columns: 1fr; }
+  .map-wrap iframe { height:200px; }
+}
+
+/* Mejorar disposición y tamaño de botones sociales en contact-strip y panels */
+.contact-strip .cs-social,
+.info-card .cs-social {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end; /* en la franja superior quedan alineados a la derecha */
+}
+
+.contact-strip .social.big,
+.info-card .social.big {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(74,59,42,0.06);
+  color: var(--color-dark);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.98rem;
+  min-width: 140px;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.03);
+  transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+}
+
+.contact-strip .social.big svg,
+.info-card .social.big svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
+/* Si hay poco espacio, apilar verticalmente y usar ancho completo */
+@media (max-width: 640px) {
+  .contact-strip .cs-social,
+  .info-card .cs-social {
+    justify-content: center;
+  }
+  .contact-strip .social.big,
+  .info-card .social.big {
+    min-width: 48%;
+    width: 48%;
+    padding: 10px;
+  }
+}
+
+/* Hover/efecto */
+.contact-strip .social.big:hover,
+.info-card .social.big:hover {
+  transform: translateY(-4px);
+  background: rgba(212,163,115,0.12);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.06);
+}
